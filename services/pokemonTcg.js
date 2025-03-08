@@ -1,11 +1,22 @@
 const axios = require('axios');
-const API_BASE = 'https://api.pokemontcg.io/v2/cards';
+require('dotenv').config();
+
+const API_BASE_URL = 'https://api.pokemontcg.io/v2';
+const API_KEY = process.env.POKEMON_TCG_API_KEY;
+
 async function getCardByName(name) {
-  const query = `q=name:"${encodeURI(name)}"`;
-  const response = await axios.get(API_BASE + `?${query}`);
-  if (response.data.data.length === 0) {
-    throw new Error('Card not found');
+  try {
+    const response = await axios.get(`${API_BASE_URL}/cards`, {
+      headers: { 'X-Api-Key': API_KEY },
+      params: { q: `name:${name}` }
+    });
+    if (response.data.data.length === 0) {
+      throw new Error('Card not found');
+    }
+    return response.data.data[0];
+  } catch (error) {
+    throw error;
   }
-  return response.data.data[0];
 }
+
 module.exports = { getCardByName };
