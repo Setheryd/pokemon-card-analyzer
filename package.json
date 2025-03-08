@@ -1,0 +1,28 @@
+{
+  "name": "pokemon-card-analyzer",
+  "version": "1.0.0",
+  "description": "Uses a host of open source APIs in combination to evaluate, identify, and determine the value of Pokemon Cards",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Setheryd/pokemon-card-analyzer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Setheryd/pokemon-card-analyzer/issues"
+  },
+  "homepage": "https://github.com/Setheryd/pokemon-card-analyzer#readme",
+  "dependencies": {
+    "axios": "^1.8.2",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.5",
+    "tesseract.js": "^6.0.0"
+  }
+}
